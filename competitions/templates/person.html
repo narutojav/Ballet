@@ -1,0 +1,236 @@
+<form class="maxw-1200" id="person">
+                   
+    {% csrf_token %}
+    <div class="form-row">
+        <!-- <label for="#" class="d-block w-100 basic">Ерөнхий мэдээлэл</label> -->
+        
+        <div class="form-group col-md-3">
+            <label for="inputCity">Төрөл</label>
+            <!-- <input type="text" class="form-control" id="inputCity"> -->
+            <select id='turul' class="form-control w-100">
+                <option disabled selected>Сонгох</option>
+                <option value="Сонгодог">Сонгодог</option>
+                <option value="Орчин үе">Орчин үе</option>
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputCity">Овог</label>
+            <input type="text" class="form-control" id="ovog">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputCity">Нэр</label>
+            <input type="text" class="form-control" id="ner">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputCity">Хүйс</label>
+            <select id='huis' class="form-control w-100">
+                <option disabled selected>Сонгох</option>
+                <option value="Эрэгтэй">Эрэгтэй</option>
+                <option value="Эмэгтэй">Эмэгтэй</option>
+            </select>
+        </div>
+        
+    </div>
+    <div class="form-row">
+        
+        <div class="input-group date col-md-4" data-provide="datepicker">
+            <label for="" class="w-100">Төрсөн огноо</label>
+            <input type="text" class="form-control" id="date" name="ldate" placeholder="Сонгох" autocomplete="off">
+            <div class="input-group-addon">
+              
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Регистерийн дугаар</label>
+            <input type="text" class="form-control" id="register_number">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputZip">Иргэний харъяалал</label>
+            <input type="text" class="form-control" id="haryalal">
+        </div>
+    </div>
+    <div class="form-row">
+        
+        <div class="form-group col-md-4">
+            <label for="inputState">Гэрийн хаяг</label>
+            <input type="text" class="form-control" id="address">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Гэрийн утас</label>
+            <input type="text" class="form-control" id="home_phone">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputZip">Гар утас</label>
+            <input type="text" class="form-control" id="phone">
+        </div>
+    </div>
+    <div class="form-row">
+        <!-- <label for="#" class="d-block w-100 basic">Ерөнхий мэдээлэл</label> -->
+        
+       
+        <div class="form-group col-md-4">
+            <label for="inputCity">И-мэйл</label>
+            <input type="text" class="form-control" id="email">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputCity">Сошиал хаяг</label>
+            <input type="text" class="form-control" id="social">
+        </div>
+        
+        <div class="form-group col-md-4">
+            <label for="inputCity">Насны ангилал</label>
+            <!-- <input type="text" class="form-control" id="inputCity"> -->
+            <select id='nas' class="form-control w-100">
+                <option disabled selected>Сонгох</option>
+                <option value="6-8 нас">6-8 нас</option>
+                <option value="9-11 нас">9-11 нас</option>
+                <option value="12-14 нас">12-14 нас</option>
+                <option value="15-18 нас">15-18 нас</option>
+            </select>
+        </div>
+        
+    </div>
+    <div class="form-row">
+        <div class="col-md-6 form-row">
+            <label for="#" class="d-block w-100 basic">1-р шат</label>
+            <div class="form-group col-md-7">
+                <label for="inputCity">Бүжгийн нэр</label>
+                <input type="text" class="form-control" id="dance-1">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="inputCity">Үргэлжлэх хугацаа</label>
+                <input type="text" class="form-control" id="time-1">
+            </div>
+        </div>
+        <div class="col-md-6 form-row">
+            <label for="#" class="d-block w-100 basic">2-р шат</label>
+            <div class="form-group col-md-7">
+                <label for="inputCity">Бүжгийн нэр</label>
+                <input type="text" class="form-control" id="dance-2">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="inputCity">Үргэлжлэх хугацаа</label>
+                <input type="text" class="form-control" id="time-2">
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <!-- <label for="#" class="d-block w-100 basic">Ерөнхий мэдээлэл</label> -->
+        <label for="#" class="d-block w-100 basic">Багшийн мэдээлэл</label>
+        <div class="form-group col-md-3">
+            <label for="inputCity">Багшийн овог</label>
+            <!-- <input type="text" class="form-control" id="inputCity"> -->
+            <input type="text" class="form-control" id="bagshiin_ovog">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputCity">Багшийн нэр</label>
+            <input type="text" class="form-control" id="bagshiin_ner">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputCity">Сургууль</label>
+            <input type="text" class="form-control" id="school">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="inputCity">Хичээллэсэн хугацаа</label>
+            <input type="text" class="form-control" id="hich_hugatsaa">
+            
+        </div>
+        
+    </div>   
+    <div class="form-row">
+        <!-- <label for="#" class="d-block w-100 basic">Ерөнхий мэдээлэл</label> -->
+        
+        <div class="form-group col-md-4">
+            <label for="inputCity">Утас</label>
+            <!-- <input type="text" class="form-control" id="inputCity"> -->
+            <input type="text" class="form-control" id="bagshiin_utas">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputCity">И-мэйл</label>
+            <input type="text" class="form-control" id="bagshiin_mail">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputCity">Сошиал хаяг</label>
+            <input type="text" class="form-control" id="bagsh_social">
+        </div>
+        
+        
+    </div>  
+   
+    <button type="submit" class="btn btn-outline-secondary mt-5">Бүртгүүлэх</button>
+  
+  </form>
+  <script>
+      $(document).on('submit', '#person', function (e) {
+		e.preventDefault();
+		$.ajax({
+			type: 'POST',
+			url: '/register_person/',
+			data: {
+				torol:$('#turul').val(),
+                name:$('#ner').val(), 
+                ovog:$('#ovog').val(),
+                gender:$('#huis').val(),
+                ognoo:$('#date').val(),
+                register_number:$('#register_number').val(),
+                irgenii_haryalal:$('#haryalal').val(),
+                address:$('#address').val(),
+                phone_home:$('#home_phone').val(),
+                phone:$('#phone').val(),
+                email:$('#email').val(),
+                social:$('#social').val(),
+                nasnii_angilal:$('#nas').val(),
+                bujgiin_ner_1:$('#dance-1').val(),
+                bujgiin_ner_2:$('#dance-2').val(),
+                hugatsaa_1:$('#time-1').val(),
+                hugatsaa_2:$('#time-2').val(),
+                teacher:$('#bagshiin_ner').val(),
+                teacher_ovog:$('#bagshiin_ovog').val(),
+                school:$('#school').val(),
+                hicheellesen_hugatsaa:$('#hich_hugatsaa').val(),
+                teacher_phone:$('#bagshiin_utas').val(),
+                teacher_email:$('#bagshiin_mail').val(),
+                teacher_social:$('#bagsh_social').val(),
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+			},
+			success: function () {
+                console.log($('#turul').val(), $('#ner').val(),$('#ovog').val(),$('#huis').val(),$('#date').val(),$('#register_number').val(),$('#haryalal').val(),$('#address').val(),
+      
+$('#home_phone').val(),
+   
+$('#phone').val(),
+        
+$('#email').val(),
+        
+$('#social').val(),
+       
+$('#nas').val(),
+          
+$('#dance-1').val(),
+      
+$('#dance-2').val(),
+      
+$('#time-1').val(),
+       
+$('#time-2').val(),
+       
+$('#bagshiin_ner').val(),
+ 
+$('#bagshiin_ovog').val(),
+
+$('#school').val(),
+       
+$('#hich_hugatsaa').val(),
+
+$('#bagshiin_utas').val(),
+
+$('#bagshiin_mail').val(),
+
+$('#bagsh_social').val()
+ 
+                )
+			}
+		})
+    });
+  </script>

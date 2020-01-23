@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+<!-- <h1>Hello</h1>
+
+{% for item in udirdamj %}
+    {{item.id}}
+    {{item.title}}
+    {{item.raw_table|safe}}
+{% endfor %} -->
+{% block content %}
+    <section id="section-1" class="pt-5 pb-100">
+
+        <div class="mwv-70 min-w-97 w-100 m-auto m-wv-100">
+            {% for item in page %}
+            <div class="section-bg m-auto maxw-1310 z-index-10 position-relative m-ml-0">
+               
+                <img src="{%static 'img/b.jpg' %}" alt="" class="scroll-img bottom-0"  data-scroll-speed='2' data-parallax="19">
+
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h3 class="rev-1 text-uppercase font-weight-bold maxw-435 fs-50 m-fs-40 mt-5 pt-5">
+                            {{item.title}}
+                        </h3>
+                        <span class="comp d-block rev-2">{{item.sub_title}}</span>
+                    </div>
+                    <div id="rev-9" class="col-sm-7 ">
+                        <img id="rev-10" src="/media/{{item.image}}" alt="" data-scroll-speed='-5' data-parallax="19">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section id="section-1" class="pt-5 pb-100 position-relative z-index-10">
+        <div class="mwv-70 min-w-97 w-100 m-auto m-wv-100 position-relative">
+            <img src="{%static 'img/scr.jpg' %}" alt="" class="scroll-img-r" data-scroll-speed='1' data-parallax="">
+
+            {% for item in udirdamj %}
+                <div class="col-12 border-bottom pt-2 pb-2">
+                    <label for="" class="fs-65 font-weight-bold rev-3">{{item.id}}. <span class="fs-25 font-weight-light ">{{item.title}}</span></label>
+                    <p>{{item.description}}</p>
+                    
+                    {% if raw_table  %}
+                        
+                    {% else %}
+                        {{item.raw_table | safe}}
+                    {% endif %}
+                </div>
+            {% endfor %}
+            
+           
+
+        </div>
+        
+       
+
+    </section>
+  
+
+
+    
+{% endblock %}

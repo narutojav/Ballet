@@ -1,0 +1,124 @@
+<form method="POST" id="team_form" class="maxw-1200" action=""> 
+    {% csrf_token %}
+    <div  class="form-row" id="team_form">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Багийн нэр</label>
+        <input type="text" class="form-control" id="bagiin_ner">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Хөгжим</label>
+        <input type="text" class="form-control" id="hugjim">
+      </div>
+    </div >
+    <div class="form-row">
+        <div class="form-group col-6">
+            <label for="inputAddress">Бүжгийн нэр</label>
+            <input type="text" class="form-control" id="bujgiin_ner">
+          </div>
+          <div class="form-group col-6">
+            <label for="inputAddress2"> Хугацаа</label>
+            <input type="text" class="form-control" id="hugatsaa" >
+          </div>
+    </div>
+    <div class="form-row position-relative">
+        <label for="#" class="d-block w-100 basic">Багийн гишүүд</label>
+        <div class="col-11">
+            <div class="form-row ">
+                <div class="row w-100">
+                    <div class="form-group col-md-6 ">
+                        <label for="inputCity ">Нэр</label>
+                        <input type="text" class="form-control name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputState" >Регистерийн дугаар</label>
+                        <input type="text" class="form-control register">
+                    </div>
+                </div>
+                <div class="plus_member w-100"></div>
+            </div>
+        </div>
+        <div class="form-group col-md-1">
+            <a class="add">
+                <svg width="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 100 100" id="Layer_1" version="1.1" viewBox="0 0 100 100" xml:space="preserve"><polygon fill="#010101" points="80.2,51.6 51.4,51.6 51.4,22.6 48.9,22.6 48.9,51.6 19.9,51.6 19.9,54.1 48.9,54.1 48.9,83.1   51.4,83.1 51.4,54.1 80.4,54.1 80.4,51.6 "/></svg>
+            </a>
+        </div>
+    </div>
+    <div class="form-row">
+        <label for="#" class="d-block w-100 basic">Ерөнхий мэдээлэл</label>
+        
+        <div class="form-group col-md-4">
+            <label for="inputCity">Багшийн овог</label>
+            <input type="text" class="form-control" id="teaccher_ovog">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Багшийн нэр</label>
+            <input type="text" class="form-control" id="teacher_ner">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Сургууль</label>
+            <input type="text" class="form-control" id="school">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="inputZip">Хичэллэсэн хугацаа</label>
+            <input type="text" class="form-control" id="hicheelelsen_hugatsaaa">
+        </div>
+    </div>
+    <div class="form-row">
+        
+        <div class="form-group col-md-4">
+            <label for="inputCity">Утас</label>
+            <input type="text" class="form-control" id="phone">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">И-мэйл</label>
+            <input type="text" class="form-control" id="email">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputZip">Сошиал хаяг</label>
+            <input type="text" class="form-control" id="social">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-secondary mt-5">Бүртгүүлэх</button>
+    
+  </form>
+
+  <script>
+  
+    var member = {}
+    $('.add').click(function(){
+            $('.plus_member').append('<div class="row"><div class="form-group col-md-6"><label for="inputCity">Нэр</label><input type="text" class="form-control name" ></div><div class="form-group col-md-6"><label for="inputState" >Регистерийн дугаар</label><input type="text" class="form-control register"></div></div>');
+        });
+    $(document).on("change", '.register', function(){ 
+        var name = $(this).parent().parent().find('.name').val();
+        var register = $(this).val();
+        member[register] = name
+        console.log(member)
+
+    })
+    $(document).on('submit', '#team_form', function (e) {
+		e.preventDefault();
+		$.ajax({
+			type: 'POST',
+			url: '/register_team/',
+			data: {
+				team_name: $('#bagiin_ner').val(),
+				sound: $('#hugjim').val(),
+				dance_name: $('#bujgiin_ner').val(),
+				time: $('#hugatsaa').val(),
+				teacher_first: $('#teaccher_ovog').val(),
+				teacher_last: $('#teacher_ner').val(),
+				school: $('#school').val(),
+				email: $('#email').val(),
+                social: $('#social').val(),
+                phone : $('#phone').val(),
+                members: JSON.stringify(member),
+                hicheelelsen_hugatsaa : $('#hicheelelsen_hugatsaaa').val(),
+				csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+			},
+			success: function () {
+				console.log()
+			}
+		})
+    });
+   
+</script>

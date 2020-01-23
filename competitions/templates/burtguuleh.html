@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+<!-- <h1>Hello</h1>
+
+{% for item in udirdamj %}
+    {{item.id}}
+    {{item.title}}
+    {{item.raw_table|safe}}
+{% endfor %} -->
+{% block content %}
+
+    <section id="section-1" class="pt-5 pb-100">
+
+        <div class="mwv-70 min-w-97 w-100 m-auto m-wv-100">
+            {% for item in page %}
+            <div class="section-bg m-auto maxw-1310 z-index-10 position-relative m-ml-0">
+               
+                <img src="{%static 'img/b.jpg' %}" alt="" class="scroll-img bottom-0"  data-scroll-speed='2' data-parallax="19">
+
+                <div class="row">
+                    <div class="col-sm-5 z-index-10">
+                        <h3 class="rev-1 text-uppercase font-weight-bold maxw-435 fs-50 m-fs-40 mt-5 pt-5">
+                            {{item.title}}
+                        </h3>
+                        {{item.sub_title | safe}}
+                    </div>
+                    <div id="rev-9" class="col-sm-7 ">
+                        <img id="rev-10" src="/media/{{item.image}}" alt="" data-scroll-speed='-2' data-parallax="19">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+ 
+  
+    <section id="load"></section>
+
+   
+{% endblock %}
+{% block script %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+   <script>
+    $("#team").click(function () {
+        $("#load").load("/register_team");
+        // $("#load").addClass("load");
+        // $("body").addClass("overflow_hide");
+
+    });
+    $("#person").click(function () {
+        $('#load').html('')
+        $("#load").load("/register_person");
+       
+
+    });
+    
+    </script> 
+{% endblock %}

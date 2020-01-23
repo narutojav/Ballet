@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+<!-- <h1>Hello</h1>
+
+{% for item in udirdamj %}
+    {{item.id}}
+    {{item.title}}
+    {{item.raw_table|safe}}
+{% endfor %} -->
+{% block content %}
+    <section id="section-1" class="pt-5 pb-100">
+
+        <div class="mwv-70 min-w-97 w-100 m-auto m-wv-100">
+            {% for item in page %}
+            <div class="section-bg m-auto maxw-1310 z-index-10 position-relative m-ml-0">
+               
+                <img src="{%static 'img/b.jpg' %}" alt="" class="scroll-img bottom-0"  data-scroll-speed='2' data-parallax="19">
+
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h3 class="rev-1 text-uppercase font-weight-bold maxw-435 fs-50 m-fs-40 mt-5 pt-5">
+                            {{item.title}}
+                        </h3>
+                        <span class="comp d-block rev-2">{{item.sub_title}}</span>
+                    </div>
+                    <div id="rev-9" class="col-sm-7 ">
+                        <img id="rev-10" src="/media/{{item.image}}" alt="" data-scroll-speed='-2' data-parallax="19">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section id="section-shuugch" class="col w-100 d-block overflow-auto max-10cols-g m-auto mt-5 position-relative z-index-10">
+        <div class="row">
+
+            {% for item in shuugch %}
+                <div class="col-sm-4 p-3">
+                    
+                    <img src="/media/{{item.image}}" alt="" data-aos="fade-right" >
+                    <h5 class="d-block w-100 border-main sh-r pt-4 pb-3  font-italic bg-white z-index-10 float-right text-right m-fs-30">{{item.ner}}</h5>
+                    <p class="d-block">{{item.tuhai | safe}}</p>
+                </div>
+            {% endfor %}
+            
+           
+       
+        </div>
+
+    </section>
+  
+
+
+{% endblock %}

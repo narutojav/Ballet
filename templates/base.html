@@ -1,0 +1,110 @@
+{% load i18n static %}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title>{% block title %}{% endblock %} </title>
+<!-- <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}"> -->
+{% block extrastyle %}{% endblock %}
+{% block responsive %}
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static "admin/css/responsive.css" %}"> -->
+    <link rel="shortcut icon" type="image/png" href="{% static "images/fav.png" %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700|News+Cycle|Nunito:200,200i,300,300i,400|PT+Sans|PT+Sans+Narrow|Roboto+Mono:100,100i,300,400&display=swap" rel="stylesheet">
+  
+    {% block extrahead %}{% endblock %}
+    <!-- {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% static "admin/css/responsive_rtl.css" %}">{% endif %} -->
+    <link rel="stylesheet" href="{% static 'dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{%static 'dist/css/swiper.min.css' %}">
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css'>
+    <link rel="stylesheet" href='{%static "dist/css/aos.css" %}' />
+    <link rel="stylesheet" href='{%static "dist/css/all.min.css"%}'>
+    <link rel="stylesheet" href='{%static "css/base.css"%}'>
+    <link rel="stylesheet" type="text/css" href='{%static "dist/css/revealer.css"%}' />
+    <link rel="stylesheet" type="text/css" href='{%static "dist/css/pater.css" %}' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
+
+{% endblock %}
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE">{% endblock %}
+</head>
+{% load i18n %}
+<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}"
+  data-admin-utc-offset="{% now "Z" %}">
+<!-- Container -->
+<!-- <ul id="side-menu" class=" position-fixed">
+  <li>
+      <a href="#section-2">
+          1
+      </a>
+  </li>
+  <li>
+      <a href="#section-3">
+          2
+      </a>
+  </li>
+</ul> -->
+<div id="header" class="container-fluid  ">
+  <ul class="float-left">
+      <a href="#"><img src="/static/img/logo-b-1.png" alt="" class="logo-img"></a>
+      <div id="bar">
+          <img src="/static/img/icons/menu-24px.svg" alt="">
+      </div>
+  </ul>
+  <ul class="float-right pr-5 mt-5 menu">
+      <li class="float-left ml-3 font-weight-bold text-uppercase"><a href="/" class="text-dark">Нүүр</a></li>
+      <li class="float-left ml-3 font-weight-bold text-uppercase"><a href="/udirdamj" class="text-dark">Удирдамж</a></li>
+      <li class="float-left ml-3 font-weight-bold text-uppercase"><a href="/register" class="text-dark">Бүртгэл</a></li>
+      <li class="float-left ml-3 font-weight-bold text-uppercase"><a href="/shuugch" class="text-dark">шүүгчид</a></li>
+
+  </ul>
+</div>
+<main>
+
+{% block content %}           
+            
+{% endblock %}
+
+
+<div id="section-footer" class="pt-5 z-index-10 position-relative">
+  <div class="row max-12cols-g m-auto ">
+      <div class="col-sm-12 text-center pt-3 border-main-top pb-3">
+         
+          <ul class="pt-5">
+              <li  class="fs-20"><span class="">Хаяг :</span>
+                  БЗД, 26-р хороо, Нийслэл Хүрээ өргөн чөлөө, Нарлаг Төв, 5 давхар.
+              </li>
+              <li class="fs-20">Мэдээлэл авах утас:
+                  77070808, 80810808
+              </li>
+              <li class="fs-20">И-мэйл:
+                  contact@mongolianballet.com
+              </li>
+              
+          </ul>
+      </div>
+      
+  </div>
+</div>
+  
+</main>
+
+
+
+
+<!-- END Container -->
+<script src="{%static 'js/jquery-3.3.1.min.js'%}"></script>
+<script src="{%static 'dist/js/swiper.min.js'%}"></script>
+
+<script src="{%static 'dist/js/aos.js'%}"></script>
+<script src='{%static "dist/js/anime.min.js" %}'></script>
+<script src='{%static "dist/js/scrollMonitor.js" %}'></script>
+<script src='{%static "dist/js/main.js" %}'></script>
+
+<script src='{% static "js/base.js" %}'></script>
+<script>
+    </script>
+{% block script %}
+    
+{% endblock %}
+</body>
+</html>
+  
